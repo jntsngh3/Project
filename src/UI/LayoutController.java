@@ -41,7 +41,6 @@ public class LayoutController implements Initializable{
 		linkList.setItems(observableList);
 		linkList.setOnMouseClicked(event -> {
 			String string = linkList.getSelectionModel().getSelectedItems().toString();
-			System.out.println();
 			loadURL(string.substring(1, string.length()-1));
 		});
 	}
