@@ -101,6 +101,7 @@ def TweetExtraction():
     api = tweepy.API(auth)
     trends1 = api.trends_place(23424975)
     # 23424848
+    # 23424975
 
     # -------------------------------------------Extracting Trending Tweets-------------------------------------------------------------
     print("Connection Successfull")
@@ -121,7 +122,7 @@ if __name__ == "__main__":
     open("Links.txt", 'w')
     open("data.json", 'w')
     open("d.txt", 'w')
-    headers = {'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'}
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)'}
     headers1 = {'User-Agent': 'Googlebot/2.1 (+http://www.googlebot.com/bot.html)'}
     count = 0
     limit = 5
@@ -132,7 +133,8 @@ if __name__ == "__main__":
         sleep(2)
         print(
             "Rquesting : " + "https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=" + searchString)
-        r = requests.get("https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=" + searchString, headers1)
+        r = requests.get("http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + searchString, headers)
+        print(r.text)
         soup = BeautifulSoup(r.text, 'html.parser')
         r.raise_for_status()
         links = []
